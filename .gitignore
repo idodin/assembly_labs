@@ -1,3 +1,4 @@
 *.s.o
 *.axf
 *.srec
+*.axf.objdump
