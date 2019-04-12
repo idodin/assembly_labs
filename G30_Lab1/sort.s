@@ -3,7 +3,6 @@
 
 _start:
 			LDR R4, =N			// Compute base address
-			ADD R3, R4, #4		// Compute address of first number
 			LDR R7, =SORTED		// Load sorted boolean
 			LDR R5, [R7]
 			LDR R2, [R4]		// Load N
@@ -18,8 +17,8 @@ SORT:		CMP R5, #1			// Check if sorted = true
 			ADD R3, R4, #4		// Reset address of first number
 INNER:		ADD R6, R6, #1		// Increment counter
 			ADD R3, R3, #4		// Increment pointer to next element
-			CMP R6, R2			// if counter = N+1 we loop again
-			BEQ SORT			// Loop again
+			CMP R6, R2			// if counter = N+1 we go to outer loop again
+			BEQ SORT			// outer loop again
 			LDR R0, [R3, #-4]	// Load previous number in list
 			LDR R1, [R3]		// Load next number in list
 			CMP R0, R1			// Compare previous number with next number

@@ -13,7 +13,7 @@ LOOP:		SUBS R2, R2, #1			// Decrement value of N ( n acts as our loop counter) N
 			ADD R3, R3, #4			// Compute address of next number into R3.
  			LDR R1, [R3]			// Load next number into R1 (dereference R3).
 			CMP R0, R1				// Compare R0 with R1 (next number). 
-			BGE MIN					// If R0 > = R1, Loop again.
+			BGE MIN					// If R0 > = R1, Check minimum.
 			MOV R0, R1				// Otherwise, update R0 with value of R1 ==> implies that R0 is finding the max. 
 			B LOOP					// Loop again.
 
@@ -22,7 +22,7 @@ MIN:		CMP R5, R1				// Compare R5 with R1
 			MOV R5, R1				// Else, update R5 with new min.
 			B LOOP					// Loop again
 
-DONE:		SUB R6, R0, R5			// R6 = R0 (max) - R6 (min)
+DONE:		SUB R6, R0, R5			// R6 = R0 (max) - R5 (min)
 			ASR R6, R6, #2
 			STR R6, [R4]			// Store value in R0 into address in R4.
 

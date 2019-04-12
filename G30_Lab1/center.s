@@ -7,7 +7,7 @@ _start:
 			LDR R6, [R9]
 			LDR R9, =POWER2		// Load current power of 2
 			LDR R7, [R9]
-			LDR R9, =SHIFTS		// Load shift number
+			LDR R9, =SHIFTS		// Load shifts number
 			LDR R8, [R9]
 			ADD R3, R4, #4		// Compute address of first number
 			LDR R5, [R3]		// Initialize sum to first number
